@@ -1,0 +1,25 @@
+#
+node_modules
+npm-debug.log
+
+build/**/*
+
+# Mac cache information
+.DS_Store
+
+# WebStorm IDE settings are local only
+/.vscode
+/.idea
+
+# Don't store the distribution folder in version control
+dist
+old_dist
+
+# Do not store credentials in version control for security reasons
+.aws-credentials.json
+.credentials.json
+.deployment.json
+.awspublish-*
+
+# Do not version control zip files, as they're downloaded from PlayCanvas
+*.zip

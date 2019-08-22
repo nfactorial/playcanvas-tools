@@ -1,5 +1,6 @@
 const https = require('https');
 const Job = require('./lib/job');
+const Download = require('./lib/download');
 
 const Tools = module.exports = {};
 
@@ -20,6 +21,7 @@ Tools.download = async function(targetPath, projectId, projectName, accessToken,
         throw new Error('Invalid project id, must be a numeric value');
 
     const jobId = await Job.createDownload(https, projectId, projectName, accessToken, scenes);
+    const jobInfo = await Job.wait(https, accessToken, jobId);
 
-    return Job.wait(https, accessToken, jobId);
+    return Download(https, targetPath, jobInfo.data.download_url)
 };

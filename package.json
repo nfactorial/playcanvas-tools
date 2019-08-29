@@ -1,6 +1,6 @@
 {
   "name": "@nfactorial/playcanvas-tools",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Helper module for communicating with the PlayCanvas job server.",
   "main": "index.js",
   "scripts": {

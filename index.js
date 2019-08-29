@@ -1,5 +1,6 @@
 const https = require('https');
 const Job = require('./lib/job');
+const Branches = require('./lib/branches');
 const Download = require('./lib/download');
 
 const Tools = module.exports = {};
@@ -14,12 +15,14 @@ const Tools = module.exports = {};
  * @param {string=} branchId - Identifier of the branch to download, if not specified then master will be used.
  * @returns {Promise<string>}
  */
-Tools.download = async function(targetPath, projectId, projectName, accessToken, scenes, branchId) {
+Tools.download = async function(targetPath, projectId, projectName, accessToken, scenes, branchName) {
     if (!targetPath || typeof targetPath !== 'string')
         throw new Error('A valid target path must be supplied');
 
     if (typeof projectId !== 'number')
         throw new Error('Invalid project id, must be a numeric value');
+
+    const branchId = branchName ? undefined : await Branches.getBranchId(https, projectId, branchName, accessToken);
 
     const jobId = await Job.createDownload(https, projectId, projectName, accessToken, scenes, branchId);
     const jobInfo = await Job.wait(https, accessToken, jobId);

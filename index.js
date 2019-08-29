@@ -11,16 +11,17 @@ const Tools = module.exports = {};
  * @param {string} projectName - Name of the project to be downloaded.
  * @param {string} accessToken - Organization access token allowing access rights for the download operation.
  * @param {number[]} scenes - List of scenes to be downloaded included within the downloaded package.
+ * @param {string=} branchId - Identifier of the branch to download, if not specified then master will be used.
  * @returns {Promise<string>}
  */
-Tools.download = async function(targetPath, projectId, projectName, accessToken, scenes) {
+Tools.download = async function(targetPath, projectId, projectName, accessToken, scenes, branchId) {
     if (!targetPath || typeof targetPath !== 'string')
         throw new Error('A valid target path must be supplied');
 
     if (typeof projectId !== 'number')
         throw new Error('Invalid project id, must be a numeric value');
 
-    const jobId = await Job.createDownload(https, projectId, projectName, accessToken, scenes);
+    const jobId = await Job.createDownload(https, projectId, projectName, accessToken, scenes, branchId);
     const jobInfo = await Job.wait(https, accessToken, jobId);
 
     return Download(https, targetPath, jobInfo.data.download_url)

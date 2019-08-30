@@ -22,7 +22,7 @@ Tools.download = async function(targetPath, projectId, projectName, accessToken,
     if (typeof projectId !== 'number')
         throw new Error('Invalid project id, must be a numeric value');
 
-    const branchId = branchName ? undefined : await Branches.getBranchId(https, projectId, branchName, accessToken);
+    const branchId = branchName ? await Branches.getBranchId(https, projectId, branchName, accessToken) : undefined;
 
     const jobId = await Job.createDownload(https, projectId, projectName, accessToken, scenes, branchId);
     const jobInfo = await Job.wait(https, accessToken, jobId);

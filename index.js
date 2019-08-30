@@ -12,7 +12,7 @@ const Tools = module.exports = {};
  * @param {string} projectName - Name of the project to be downloaded.
  * @param {string} accessToken - Organization access token allowing access rights for the download operation.
  * @param {number[]} scenes - List of scenes to be downloaded included within the downloaded package.
- * @param {string=} branchId - Identifier of the branch to download, if not specified then master will be used.
+ * @param {string=} branchName - Name of the branch to download, if not specified then master will be used.
  * @returns {Promise<string>}
  */
 Tools.download = async function(targetPath, projectId, projectName, accessToken, scenes, branchName) {

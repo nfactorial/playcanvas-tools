@@ -1,13 +1,14 @@
+const http = require('./lib/http');
+
 const https = require('https');
 const Job = require('./lib/job');
 const Download = require('./lib/download');
 
 const DEFAULT_HOST_ADDRESS = 'playcanvas.com';
-const DEFAULT_HOST_PORT = 443;
 
 const Tools = module.exports = {
     HOST_ADDRESS: DEFAULT_HOST_ADDRESS,
-    HOST_PORT: DEFAULT_HOST_PORT,
+    HOST_PORT: http.Ports.SSL,
 };
 
 /**

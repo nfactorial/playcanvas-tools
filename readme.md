@@ -1,5 +1,5 @@
 # PlayCanvas Tools
-This package provides scripting support tools for interacting with the playcanvas server.
+This package wraps the PlayCanvas REST API with provides scripting support tools for interacting with the playcanvas server.
 
 ## Installation
 Install the package using npm with:

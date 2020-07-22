@@ -20,8 +20,8 @@ create an access token. This is required in order to access the REST API.
 ### Examples
 
 ```javascript
-// Download a Project from PlayCanvas, as my_package.zip.
-// You will need to know the projectID for your project, and the accedToken.
+// Download a Project from PlayCanvas as my_package.zip.
+// You will need to know the projectID for your project, and the accessToken.
 // The scenes you wish to download should be specified in the [scenes] array.
 const PlayCanvasTools = require('@nfactorial/playcanvas-tools');
 

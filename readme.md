@@ -2,7 +2,7 @@
 
 This package wraps the PlayCanvas REST API providing scripting support tools for interacting with the playcanvas server.
 
-The GitHub URL for this project is <https://github.com/SlipstreamPhil/playcanvas-tools>
+The GitHub URL for this project is <https://github.com/nfactorial/playcanvas-tools>
 
 ## Installation
 
